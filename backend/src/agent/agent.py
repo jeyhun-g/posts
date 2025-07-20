@@ -2,7 +2,7 @@ from google.adk.agents import LlmAgent, SequentialAgent
 from google.adk.models.lite_llm import LiteLlm
 from .prompt import PROMPT_V1, generate_output_schema
 from pydantic import BaseModel, Field
-from typing import Literal
+from typing import Literal, Optional
 
 class TopicModel(BaseModel):
     name: str = Field(description="Topic or keyword name")
@@ -10,6 +10,7 @@ class TopicModel(BaseModel):
 
 class AgentOutput(BaseModel):
     keywords: list[TopicModel] = Field(description="List of extracted keywords")
+    error: Optional[str] = Field(description="Optional error message, if keywords couldn't be found")
 
 
 def create_agent():
