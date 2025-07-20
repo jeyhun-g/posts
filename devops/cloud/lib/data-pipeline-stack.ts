@@ -1,9 +1,8 @@
-import { Stack, StackProps } from 'aws-cdk-lib';
+import { Stack, StackProps, RemovalPolicies } from 'aws-cdk-lib';
 import * as dynamodb from 'aws-cdk-lib/aws-dynamodb';
 import { Construct } from 'constructs';
-// import * as sqs from 'aws-cdk-lib/aws-sqs';
 
-export class MainAppStack extends Stack {
+export class DataPipelineStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 

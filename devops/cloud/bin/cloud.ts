@@ -1,19 +1,13 @@
 #!/usr/bin/env node
 import * as cdk from 'aws-cdk-lib';
-import { MainAppStack } from '../lib/main-app';
-
-// TODO: Create EnvConfig class with defined env structure and validation for env variables
+import { DataPipelineStack } from '../lib/data-pipeline-stack';
 import dotenv from 'dotenv'; 
+import { EnvConfig } from '../utils/EnvConfig';
 dotenv.config()
-import AWS from 'aws-sdk';
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY,
-  secretAccessKey: process.env.AWS_ACCESS_SECRET,
-  region: process.env.CDK_DEV_REGION,
-});
 
+const config = EnvConfig.create()
 
 const app = new cdk.App();
-new MainAppStack(app, 'MainAppStack', {
-  env: { account: process.env.CDK_ACCOUNT, region: process.env.CDK_DEV_REGION },
+new DataPipelineStack(app, 'DataPipelineStack', {
+  env: { account: config.accountId, region: process.env.CDK_DEV_REGION },
 });

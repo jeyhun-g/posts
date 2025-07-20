@@ -1,0 +1,48 @@
+import AWS from 'aws-sdk';
+
+export interface Config {
+  accountId: string;
+  accessKey: string;
+  accessSecret: string;
+  region: string;
+}
+
+
+export class EnvConfig {
+  static create(): Config {
+    const config: Config = {
+      accessKey: 'test',
+      accessSecret: 'test',
+      accountId: '000000000000',
+      region: 'test'
+    }
+
+    switch (process.env.NODE_ENV) {
+      case 'local':
+        process.env.AWS_ENDPOINT_URL="http://localhost:4566";
+        break;
+      case 'development':
+        config.accessKey = process.env.AWS_ACCESS_KEY || ''
+        config.accessSecret = process.env.AWS_ACCESS_SECRET || ''
+        config.accountId = process.env.CDK_ACCOUNT || ''
+        config.region = process.env.CDK_DEV_REGION || ''
+        break;
+      case 'production':
+        config.accessKey = process.env.AWS_ACCESS_KEY || ''
+        config.accessSecret = process.env.AWS_ACCESS_SECRET || ''
+        config.accountId = process.env.CDK_ACCOUNT || ''
+        config.region = process.env.CDK_PROD_REGION || ''
+        break;
+      default:
+        throw new Error(`Environment not recognized: ${process.env.NODE_ENV}`)
+    }
+
+    AWS.config.update({
+      accessKeyId: config.accessKey,
+      secretAccessKey: config.accessSecret,
+      region: config.region,
+    });
+
+    return config
+  }
+}
