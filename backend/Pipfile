@@ -10,6 +10,7 @@ fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 python-dotenv = "*"
 psycopg2-binary = "*"
+boto3 = "*"
 
 [dev-packages]
 pytest = "*"

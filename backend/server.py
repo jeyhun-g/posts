@@ -8,6 +8,7 @@ from google.adk.sessions import InMemorySessionService
 from google.genai import types
 
 from src import create_agent, init_server
+from src.server.dynamodb import put_item
 
 # Load environment variables
 load_dotenv()
@@ -31,6 +32,7 @@ async def health():
 @app.post("/analyze")
 async def analyze(request: AnalyzeRequest):
     # Construct user content for the calendar agent
+    put_item(request.url)
 
     session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)
     content = types.Content(
