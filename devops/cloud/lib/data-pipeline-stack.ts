@@ -8,10 +8,14 @@ export class DataPipelineStack extends Stack {
 
     // Create DynamoDB table
     new dynamodb.Table(this, 'BlogUrlsRaw', {
-      tableName: 'BlogUrlsRaw',
+      tableName: 'PostsBlogUrlsRaw',
       partitionKey: {
-        name: 'url',
+        name: 'id',
         type: dynamodb.AttributeType.STRING
+      },
+      sortKey: {
+        name: 'createdAt',
+        type: dynamodb.AttributeType.NUMBER
       },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
       deletionProtection: true
