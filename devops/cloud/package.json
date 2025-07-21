@@ -9,9 +9,9 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk:dev:check": "NODE_ENV=development cdk synth",
-    "cdk:dev:deploy": "NODE_ENV=development cdk synth && NODE_ENV=development cdk deploy",
+    "cdk:dev:deploy": "NODE_ENV=development cdk synth && NODE_ENV=development cdk deploy --all",
     "cdk:local:check": "NODE_ENV=local cdklocal synth",
-    "cdk:local:deploy": "NODE_ENV=local cdklocal synth && NODE_ENV=local cdklocal deploy"
+    "cdk:local:deploy": "NODE_ENV=local cdklocal synth && NODE_ENV=local cdklocal deploy --all"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",
@@ -23,8 +23,8 @@
     "typescript": "~5.6.3"
   },
   "dependencies": {
+    "@aws-sdk/credential-providers": "^3.848.0",
     "aws-cdk-lib": "2.205.0",
-    "aws-sdk": "^2.1692.0",
     "constructs": "^10.0.0",
     "dotenv": "^17.2.0"
   }

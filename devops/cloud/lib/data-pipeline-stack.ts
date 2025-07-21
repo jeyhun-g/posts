@@ -14,6 +14,7 @@ export class DataPipelineStack extends Stack {
         type: dynamodb.AttributeType.STRING
       },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+      deletionProtection: true
     })
   }
 }

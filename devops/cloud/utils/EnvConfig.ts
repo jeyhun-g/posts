@@ -1,5 +1,3 @@
-import AWS from 'aws-sdk';
-
 export interface Config {
   accountId: string;
   accessKey: string;
@@ -37,11 +35,9 @@ export class EnvConfig {
         throw new Error(`Environment not recognized: ${process.env.NODE_ENV}`)
     }
 
-    AWS.config.update({
-      accessKeyId: config.accessKey,
-      secretAccessKey: config.accessSecret,
-      region: config.region,
-    });
+    process.env.AWS_ACCESS_KEY_ID=config.accessKey
+    process.env.AWS_SECRET_ACCESS_KEY=config.accessSecret
+    process.env.AWS_REGION=config.region
 
     return config
   }
