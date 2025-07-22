@@ -41,4 +41,4 @@ docker tag $REPO_NAME:latest $REPO_ARN:latest
 docker push $REPO_ARN:latest
 
 # deploy
-# aws apprunner start-deployment --service-arn arn:aws:apprunner:us-east-1:620526827136:service/qrguard-backend-api/796e227ec8ca49bbb4da6603a1e38b7b
+aws apprunner start-deployment --service-arn $APP_RUNNER_ARN
