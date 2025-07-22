@@ -5,7 +5,14 @@ import dotenv from 'dotenv';
 import { EnvConfig } from '../utils/EnvConfig';
 import { InfraStack } from '../lib/infra-stack';
 import { MainAppStack } from '../lib/mainapp-stack';
-dotenv.config()
+import * as path from 'path'
+
+if (process.env.NODE_ENV === "development") {
+  dotenv.config({ path: path.join(__dirname,'../.env.dev')})
+} else if (process.env.NODE_ENV === "production") {
+  dotenv.config({ path: path.join(__dirname,'../.env.prod')})
+}
+
 
 const config = EnvConfig.create()
 
@@ -17,7 +24,9 @@ const infraStack = new InfraStack(app, 'InfraStack', {
 
 new MainAppStack(app, 'MainAppStack', {
   env: { account: config.accountId, region: config.region },
-  vpc: infraStack.vpc
+  config,
+  vpc: infraStack.vpc,
+  ecrRepo: infraStack.repo
 })
 
 new DataPipelineStack(app, 'DataPipelineStack', {

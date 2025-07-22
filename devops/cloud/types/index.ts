@@ -1,0 +1,1 @@
+export { CustomStackProps } from './stack'

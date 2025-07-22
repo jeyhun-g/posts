@@ -3,6 +3,7 @@ export interface Config {
   accessKey: string;
   accessSecret: string;
   region: string;
+  openaiApiKey: string;
 }
 
 
@@ -12,7 +13,8 @@ export class EnvConfig {
       accessKey: 'test',
       accessSecret: 'test',
       accountId: '000000000000',
-      region: 'test'
+      region: 'test',
+      openaiApiKey: 'test'
     }
 
     switch (process.env.NODE_ENV) {
@@ -24,12 +26,14 @@ export class EnvConfig {
         config.accessSecret = process.env.AWS_ACCESS_SECRET || ''
         config.accountId = process.env.CDK_ACCOUNT || ''
         config.region = process.env.CDK_DEV_REGION || ''
+        config.openaiApiKey = process.env.OPENAI_API_KEY || ''
         break;
       case 'production':
         config.accessKey = process.env.AWS_ACCESS_KEY || ''
         config.accessSecret = process.env.AWS_ACCESS_SECRET || ''
         config.accountId = process.env.CDK_ACCOUNT || ''
         config.region = process.env.CDK_PROD_REGION || ''
+        config.openaiApiKey = process.env.OPENAI_API_KEY || ''
         break;
       default:
         throw new Error(`Environment not recognized: ${process.env.NODE_ENV}`)
