@@ -35,7 +35,7 @@ then
 fi
 
 # docker upload
-aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $REPO_LOCATION
+aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $REPO_LOCATION
 docker build -t $REPO_NAME .
 docker tag $REPO_NAME:latest $REPO_ARN:latest
 docker push $REPO_ARN:latest
