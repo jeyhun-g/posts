@@ -65,6 +65,10 @@ export class MainAppStack extends cdk.Stack {
                 name: 'AWS_REGION',
                 value: props?.config.region,
               },
+              {
+                name: 'ENV',
+                value: props?.config.env,
+              },
             ],
           },
         },
