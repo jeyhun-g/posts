@@ -14,7 +14,7 @@ export class EnvConfig {
       accessKey: 'test',
       accessSecret: 'test',
       accountId: '000000000000',
-      region: 'test',
+      region: 'us-east-1',
       openaiApiKey: 'test',
       env: 'test'
     }
