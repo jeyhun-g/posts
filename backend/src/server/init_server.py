@@ -1,9 +1,8 @@
-import asyncio
-
 from contextlib import asynccontextmanager
 from google.adk.agents import LlmAgent
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from starlette.datastructures import State
 
 from google.adk.sessions import BaseSessionService
@@ -30,4 +29,16 @@ def init_server(app_name: str, session_service: BaseSessionService, agent: LlmAg
     pass
 
   app = CustomFastAPI(lifespan=lifespan)
+
+  app.add_middleware(
+      CORSMiddleware,
+      allow_origins=[
+         "https://main.d36l1ceucusebx.amplifyapp.com",
+         "http://localhost:3000"
+      ],
+      allow_credentials=True,
+      allow_methods=["*"],
+      allow_headers=["*"],
+  )
+
   return app
