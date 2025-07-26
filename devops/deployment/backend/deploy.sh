@@ -1,6 +1,6 @@
 #!/bin/bash
 BASEDIR=$(dirname $0)
-source $BASEDIR/helpers.sh
+source $BASEDIR/../helpers.sh
 
 BACKEND_DIR=../../backend
 
