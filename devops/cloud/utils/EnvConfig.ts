@@ -5,6 +5,7 @@ export interface Config {
   region: string;
   openaiApiKey: string;
   env: string;
+  githubToken: string;
 }
 
 
@@ -16,7 +17,8 @@ export class EnvConfig {
       accountId: '000000000000',
       region: 'us-east-1',
       openaiApiKey: 'test',
-      env: 'test'
+      env: 'test',
+      githubToken: 'test',
     }
 
     switch (process.env.NODE_ENV) {
@@ -30,6 +32,7 @@ export class EnvConfig {
         config.region = process.env.CDK_DEV_REGION || ''
         config.openaiApiKey = process.env.OPENAI_API_KEY || ''
         config.env = process.env.ENV || ''
+        config.githubToken = process.env.GITHUB_TOKEN || ''
         break;
       case 'production':
         config.accessKey = process.env.AWS_ACCESS_KEY || ''
@@ -38,6 +41,7 @@ export class EnvConfig {
         config.region = process.env.CDK_PROD_REGION || ''
         config.openaiApiKey = process.env.OPENAI_API_KEY || ''
         config.env = process.env.ENV || ''
+        config.githubToken = process.env.GITHUB_TOKEN || ''
         break;
       default:
         throw new Error(`Environment not recognized: ${process.env.NODE_ENV}`)

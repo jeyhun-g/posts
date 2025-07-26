@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "test": "jest",
     "cdk:dev:check": "NODE_ENV=development cdk synth",
-    "cdk:dev:deploy": "NODE_ENV=development cdk synth && NODE_ENV=development cdk deploy --all",
+    "cdk:dev:deploy": "NODE_ENV=development cdk synth && NODE_ENV=development cdk deploy WebAppStack",
     "cdk:local:check": "NODE_ENV=local cdklocal synth",
     "cdk:local:deploy": "NODE_ENV=local cdklocal synth && NODE_ENV=local cdklocal deploy InfraStack DataPipelineStack",
     "cdk:local:bootstrap": "NODE_ENV=local AWS_DEFAULT_REGION=test cdklocal bootstrap",

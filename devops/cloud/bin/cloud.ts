@@ -5,6 +5,7 @@ import dotenv from 'dotenv';
 import { EnvConfig } from '../utils/EnvConfig';
 import { InfraStack } from '../lib/infra-stack';
 import { MainAppStack } from '../lib/mainapp-stack';
+// import { WebAppStack } from '../lib/webapp/webapp-stack';
 import * as path from 'path'
 
 if (process.env.NODE_ENV === "development") {
@@ -28,6 +29,12 @@ new MainAppStack(app, 'MainAppStack', {
   vpc: infraStack.vpc,
   ecrRepo: infraStack.repo
 })
+
+// Need to fix this
+// new WebAppStack(app, 'WebAppStack', {
+//   env: { account: config.accountId, region: config.region },
+//   config,
+// })
 
 new DataPipelineStack(app, 'DataPipelineStack', {
   env: { 
