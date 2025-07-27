@@ -2,12 +2,29 @@
 
 import { useState } from 'react';
 import { Search } from 'lucide-react';
+import Instructions, { InstructionsProps } from '@app/components/Instructions';
+
+const instructions: InstructionsProps['instructions'] = [
+  {
+    title: "Copy the Blog or Article URL",
+    body: "Find the blog post or article you want to analyze and copy its URL from the browser’s address bar."
+  },
+  {
+    title: "Click \"Search\"",
+    body: "Paste the copied URL into the input box, then click the Search button to begin analysis."
+  },
+  {
+    title: "View the Results",
+    body: "Instantly see key insights, summaries, or extracted data based on the content of the page."
+  }
+]
 
 export default function Analyze() {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showInstructions, setShowInstructions] = useState<boolean>(true);
 
   const handleSearch = async () => {
   if (!url.trim()) return;
@@ -15,6 +32,7 @@ export default function Analyze() {
   setLoading(true);
   setError(null);
   setResult(null);
+  setShowInstructions(false);
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/analyze`, {
@@ -41,7 +59,7 @@ export default function Analyze() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="relative w-full max-w-xl">
+      <div className="relative w-full flex flex-col items-center">
         <div className="flex items-center w-full max-w-xl bg-white shadow-md border border-gray-300 rounded-full px-4 py-2">
           <input
             type="text"
@@ -63,6 +81,10 @@ export default function Analyze() {
             <Search className="w-5 h-5" />
           </button>
         </div>
+
+        {showInstructions && (
+          <Instructions instructions={instructions} />
+        )}
 
         {loading && (
           <p className="mt-6 text-gray-600 text-center">Loading...</p>
