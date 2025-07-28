@@ -6,7 +6,7 @@ from typing import Literal, Optional
 
 class TopicModel(BaseModel):
     name: str = Field(description="Topic or keyword name")
-    expertise_level: Literal["Beginner", "Intermediate", "Advanced"]
+    level: Literal["Beginner", "Intermediate", "Advanced"]
 
 class AgentOutput(BaseModel):
     keywords: list[TopicModel] = Field(description="List of extracted keywords")
