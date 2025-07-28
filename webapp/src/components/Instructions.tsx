@@ -11,7 +11,7 @@ const Instructions: React.FC<InstructionsProps> = ({ instructions }) => {
     <div className="flex flex-col lg:flex-row justify-center gap-4 my-6">
       {instructions.map((instruction) => (
         <div key={instruction.title} className="m-2 flex min-w-2xs max-w-2xs">
-          <InstructionCard title={instruction.title} body={instruction.body} />
+          <InstructionCard {...instruction} />
         </div>
       ))}
     </div>

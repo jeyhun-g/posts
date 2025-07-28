@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Search } from 'lucide-react';
 import Instructions, { InstructionsProps } from '@app/components/Instructions';
+import Results, { ResultsProps } from '@app/components/Results';
 
 const instructions: InstructionsProps['instructions'] = [
   {
@@ -21,7 +22,7 @@ const instructions: InstructionsProps['instructions'] = [
 
 export default function Analyze() {
   const [url, setUrl] = useState('');
-  const [result, setResult] = useState<string | null>(null);
+  const [results, setResults] = useState<ResultsProps['results'] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [showInstructions, setShowInstructions] = useState<boolean>(true);
@@ -31,7 +32,7 @@ export default function Analyze() {
 
   setLoading(true);
   setError(null);
-  setResult(null);
+  setResults(null);
   setShowInstructions(false);
 
   try {
@@ -47,7 +48,7 @@ export default function Analyze() {
       throw new Error(data.response.error || 'Something went wrong');
     }
 
-    setResult(JSON.stringify(data.response.keywords, null, 2));
+    setResults(data.response.keywords);
   } catch (err: unknown) {
     console.log(err)
     setError('Request failed');
@@ -90,10 +91,8 @@ export default function Analyze() {
           <p className="mt-6 text-gray-600 text-center">Loading...</p>
         )}
 
-        {result && (
-          <pre className="mt-6 p-4 bg-gray-100 border border-gray-300 rounded-lg text-sm overflow-x-auto whitespace-pre-wrap">
-            {result}
-          </pre>
+        {results && (
+          <Results results={results} />
         )}
 
         {error && (
