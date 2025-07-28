@@ -7,7 +7,7 @@ import Results, { ResultsProps } from '@app/components/Results';
 
 const instructions: InstructionsProps['instructions'] = [
   {
-    title: "Copy the Blog or Article URL",
+    title: "Copy a Blog or Article url",
     body: "Find the blog post or article you want to analyze and copy its URL from the browser’s address bar."
   },
   {
@@ -16,7 +16,7 @@ const instructions: InstructionsProps['instructions'] = [
   },
   {
     title: "View the Results",
-    body: "Instantly see key insights, summaries, or extracted data based on the content of the page."
+    body: "Instantly see topics and their knowledge levels based on the content of the page."
   }
 ]
 
