@@ -1,0 +1,321 @@
+[
+  {
+    "title": "From Facts & Metrics to Media Machine Learning: Evolving the Data Engineering Function at Netflix",
+    "url": "https://netflixtechblog.com/from-facts-metrics-to-media-machine-learning-evolving-the-data-engineering-function-at-netflix-6dcc91058d8d",
+    "date": 1755734400000,
+    "imageUrl": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*87cD7-YKwcl_Quvu",
+    "keywords": [
+      {
+        "name": "Data Engineering Evolution",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Media Machine Learning",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data Infrastructure",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Metrics and Facts Architecture",
+        "level": "Intermediate"
+      },
+      {
+        "name": "MLOps (Machine Learning Operations)",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data Mesh",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data Governance",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Machine Learning Platform",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data-Driven Culture",
+        "level": "Beginner"
+      }
+    ]
+  },
+  {
+    "title": "How Netflix Accurately Attributes eBPF Flow Logs",
+    "url": "https://netflixtechblog.com/how-netflix-accurately-attributes-ebpf-flow-logs-afe6d644a3bc",
+    "date": 1744070400000,
+    "imageUrl": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*o8tJzaxRlWDBIYBS",
+    "keywords": [
+      {
+        "name": "eBPF flow logs",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Network attribution",
+        "level": "Advanced"
+      },
+      {
+        "name": "Kubernetes services",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Load balancing algorithms",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Service mesh architecture",
+        "level": "Advanced"
+      },
+      {
+        "name": "IPVS (IP Virtual Server)",
+        "level": "Advanced"
+      },
+      {
+        "name": "Observability tooling",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Deep packet inspection",
+        "level": "Advanced"
+      }
+    ]
+  },
+  {
+    "title": "The Making of VES: the Cosmos Microservice for Netflix Video Encoding",
+    "url": "https://netflixtechblog.com/the-making-of-ves-the-cosmos-microservice-for-netflix-video-encoding-946b9b3cd300",
+    "imageUrl": "https://miro.medium.com/v2/da:true/resize:fit:1200/0*7n3hN3lYhe89Ezk6",
+    "date": 1712620800000,
+    "keywords": [
+      {
+        "name": "Video Encoding Service (VES)",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Microservices Architecture",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Video Processing Pipeline",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Cosmos Platform",
+        "level": "Intermediate"
+      },
+      {
+        "name": "System Scalability",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Fault Tolerance",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Job Orchestration",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Resource Management",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Multi-Region Deployment",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Legacy System Migration",
+        "level": "Intermediate"
+      }
+    ]
+  },
+  {
+    "title": "From Facts & Metrics to Media Machine Learning…",
+    "url": "https://netflixtechblog.com/from-facts-metrics-to-media-machine-learning-evolving-the-data-engineering-function-at-netflix-6dcc91058d8d",
+    "date": 1755734400000,
+    "keywords": [
+      {
+        "name": "Data Engineering Evolution",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Media Machine Learning",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data Platform Architecture",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Metrics and Observability",
+        "level": "Beginner"
+      },
+      {
+        "name": "Machine Learning Infrastructure",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Media Content Analytics",
+        "level": "Intermediate"
+      }
+    ]
+  },
+  {
+    "title": "High-Level System for Predictive Modeling (Optimizing Content Quality Control)",
+    "url": "https://techblog.netflix.com/2015/12/optimizing-content-quality-control-at-netflix-predictive-modeling.html",
+    "date": 1449705600000,
+    "keywords": [
+      {
+        "name": "Content quality control",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Predictive modeling",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Machine learning evaluation",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Quality assurance automation",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data labeling",
+        "level": "Beginner"
+      },
+      {
+        "name": "Review prioritization",
+        "level": "Intermediate"
+      }
+    ]
+  },
+  {
+    "title": "High Quality Video Encoding at Scale",
+    "url": "https://techblog.netflix.com/2015/12/high-quality-video-encoding-at-scale.html",
+    "date": 1449619200000,
+    "keywords": [
+      {
+        "name": "Video encoding",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Per-title optimization",
+        "level": "Advanced"
+      },
+      {
+        "name": "Bitrate optimization",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Quality assessment",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Encoding workflow automation",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Subjective video quality",
+        "level": "Intermediate"
+      }
+    ]
+  },
+  {
+    "title": "Learning a Personalized Homepage",
+    "url": "https://netflixtechblog.com/learning-a-personalized-homepage-aa8ec670359a",
+    "date": 1428537600000,
+    "keywords": [
+      {
+        "name": "Homepage personalization",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Machine learning models",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Candidate generation",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Ranking algorithms",
+        "level": "Intermediate"
+      },
+      {
+        "name": "User engagement signals",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Contextual recommendations",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Exploration vs. exploitation",
+        "level": "Advanced"
+      },
+      {
+        "name": "Model training pipeline",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Online A/B testing",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Recommendation system evaluation",
+        "level": "Advanced"
+      }
+    ]
+  },
+  {
+    "title": "Evolution of the Netflix Data Pipeline",
+    "url": "https://netflixtechblog.com/evolution-of-the-netflix-data-pipeline-da246ca36905",
+    "date": 1455494400000,
+    "keywords": [
+      {
+        "name": "Data pipeline architecture",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Stream processing",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Batch processing",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data infrastructure evolution",
+        "level": "Advanced"
+      },
+      {
+        "name": "Scalability challenges",
+        "level": "Advanced"
+      },
+      {
+        "name": "Workflow orchestration",
+        "level": "Intermediate"
+      },
+      {
+        "name": "ETL processes",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Apache Kafka",
+        "level": "Intermediate"
+      },
+      {
+        "name": "AWS cloud services",
+        "level": "Intermediate"
+      },
+      {
+        "name": "Data reliability",
+        "level": "Intermediate"
+      }
+    ]
+  }
+]
