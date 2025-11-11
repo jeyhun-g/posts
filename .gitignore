@@ -6,3 +6,6 @@ __pycache__
 
 # local stack volume
 devops/volume/*
+
+# for etl processed files
+etl/.processed_files

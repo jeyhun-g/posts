@@ -13,6 +13,13 @@
       "envFile": "${workspaceFolder}/backend/.env"
     },
     {
+      "name": "Run ETL",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/etl/src/main.py",
+      "console": "integratedTerminal"
+    },
+    {
       "type": "node",
       "request": "launch",
       "name": "Debug Webapp",
