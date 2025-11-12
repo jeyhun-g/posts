@@ -1,0 +1,21 @@
+meta {
+  name: Post Blog
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{server}}/v1/blogs
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title": "AWS CDK Deep Dive: Advanced Infrastructure as Code",
+    "url": "https://dzone.com/articles/aws-cdk-deep-dive-advanced-infrastructure-as-code",
+    "category": "SOFTWARE_ENGINEERING",
+    "keywords": ["aws", "cdk", "infrastructure", "devops"]
+  }
+}
+

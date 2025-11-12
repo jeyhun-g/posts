@@ -1,14 +1,9 @@
 services:
-  localstack:
-    container_name: "localstack"
-    image: localstack/localstack
+  dynamodb:
+    container_name: "dynamodb"
+    image: amazon/dynamodb-local:latest
     ports:
-      - "127.0.0.1:4566:4566"            # LocalStack Gateway
-      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
-    environment:
-      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
-      - DEBUG=${DEBUG:-0}
-      - AWS_REGION=test
+      - "127.0.0.1:8000:8000"
+    command: ["-jar", "DynamoDBLocal.jar", "-sharedDb"]
     volumes:
-      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
-      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "${DYNAMODB_VOLUME_DIR:-./volume}:/home/dynamodblocal/data"

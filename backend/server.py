@@ -9,6 +9,7 @@ from google.genai import types
 
 from src import create_agent, init_server
 from src.server.dynamodb import put_item
+from src.server.routes import router
 
 # Load environment variables
 load_dotenv()
@@ -24,15 +25,10 @@ app = init_server(app_name=APP_NAME, agent=agent, session_service=session_servic
 class AnalyzeRequest(BaseModel):
     url: str
 
-@app.get("/health")
-async def health():
-    service_name = os.getenv("SERVICE_NAME")
-    return { "service_name": service_name, "status": "okay" }
-
 @app.post("/analyze")
 async def analyze(request: AnalyzeRequest):
     # Construct user content for the calendar agent
-    put_item(request.url)
+    # put_item(request.url)
 
     session = session_service.create_session(app_name=APP_NAME, user_id=USER_ID)
     content = types.Content(
@@ -53,8 +49,11 @@ async def analyze(request: AnalyzeRequest):
         if event.is_final_response():
             final_response = event.content.parts[0].text
 
+    session_service.delete_session(app_name=APP_NAME, user_id=USER_ID, session_id=session.id)
     return { "response": json.loads(final_response) }
 
+# Include routes
+app.include_router(router)
 
 if __name__ == "__main__":
     import uvicorn

@@ -1,0 +1,12 @@
+meta {
+  name: Get Blogs
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{server}}/v1/blogs
+  body: json
+  auth: inherit
+}
+
