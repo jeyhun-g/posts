@@ -17,7 +17,9 @@
       "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/etl/src/main.py",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "cwd": "${workspaceFolder}/etl",
+      "python": "${workspaceFolder}/etl/.venv/bin/python"
     },
     {
       "type": "node",

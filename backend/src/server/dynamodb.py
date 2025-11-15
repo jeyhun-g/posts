@@ -2,6 +2,9 @@ import boto3
 import uuid
 import time
 from enum import Enum
+from typing import Optional, Dict, Any
+
+from pydantic import HttpUrl
 from .config import settings
 
 
@@ -28,12 +31,35 @@ def put_item(blog_url: str):
         "createdAt": int(time.time() * 1000)
     })
 
-def put_blog_data(category: Categories, title: str, url: str, keywords: list):
+async def put_blog_data(category: Categories, title: str, url: HttpUrl, keywords: list):
     return blog_data_table.put_item(Item={
         "pk": PrimaryKey.ARTICLES.value,
-        "sk": category.value,
+        "sk": f"{category}#{url}",
         "title": title,
-        "url": url,
+        "url": str(url),
         "keywords": keywords,
         "createdAt": int(time.time() * 1000)
     })
+
+async def get_all_blogs(limit: Optional[int] = None, exclusive_start_key: Optional[Dict[str, Any]] = None):
+    """Get all blogs from the database with pagination support"""
+    query_params = {
+        "KeyConditionExpression": "pk = :pk",
+        "ExpressionAttributeValues": {
+            ":pk": PrimaryKey.ARTICLES.value
+        }
+    }
+    
+    if limit is not None:
+        query_params["Limit"] = limit
+    
+    if exclusive_start_key is not None:
+        query_params["ExclusiveStartKey"] = exclusive_start_key
+    
+    response = blog_data_table.query(**query_params)
+    
+    return {
+        "items": response.get("Items", []),
+        "last_evaluated_key": response.get("LastEvaluatedKey"),
+        "has_more": "LastEvaluatedKey" in response
+    }

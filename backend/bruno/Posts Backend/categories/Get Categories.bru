@@ -1,0 +1,12 @@
+meta {
+  name: Get Categories
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{server}}/v1/categories
+  body: json
+  auth: inherit
+}
+
