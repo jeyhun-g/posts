@@ -25,42 +25,42 @@ def extract_papers(html_content):
         print("Error: Could not find <main> element", file=sys.stderr)
         return []
     
-    articles_dl = main.find('dl', id='articles')
-    if not articles_dl:
+    articles_dls = main.find_all('dl', id='articles')
+    if not articles_dls:
         print("Error: Could not find dl.articles within main", file=sys.stderr)
         return []
     
-    articles_container = articles_dl
-    
-    # Find all dt elements within the articles container
-    dt_elements = articles_container.find_all('dt')
-    
     papers = []
     
-    for dt in dt_elements:
-        # Find the corresponding dd element (next sibling)
-        dd = dt.find_next_sibling('dd')
-        if not dd:
-            continue
+    # Loop over each dl.articles container
+    for articles_container in articles_dls:
+        # Find all dt elements within the articles container
+        dt_elements = articles_container.find_all('dt')
         
-        # Extract URL from dt > a.title where text is "View HTML"
-        url = None
-        # Find <a> tag with class 'title' that contains "View HTML" text
-        title_link = dt.find('a', string='html')
-        if not title_link:
-            continue
-        
-        url = title_link.get('href')
-        
-        # Extract title from dd > div.meta > div.list-title
-        title = None
-        title_div = dd.find('div', class_='list-title')
-        if title_div:
-            title = title_div.get_text(strip=True).replace("Title:", "")
-        
-        # Only add if we have both title and url
-        if title and url:
-            papers.append({'title': title, 'url': url})
+        for dt in dt_elements:
+            # Find the corresponding dd element (next sibling)
+            dd = dt.find_next_sibling('dd')
+            if not dd:
+                continue
+            
+            # Extract URL from dt > a.title where text is "View HTML"
+            url = None
+            # Find <a> tag with class 'title' that contains "View HTML" text
+            title_link = dt.find('a', string='html')
+            if not title_link:
+                continue
+            
+            url = title_link.get('href')
+            
+            # Extract title from dd > div.meta > div.list-title
+            title = None
+            title_div = dd.find('div', class_='list-title')
+            if title_div:
+                title = title_div.get_text(strip=True).replace("Title:", "")
+            
+            # Only add if we have both title and url
+            if title and url:
+                papers.append({'title': title, 'url': url})
     
     return papers
 
