@@ -20,5 +20,20 @@ export class DataPipelineStack extends Stack {
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
       deletionProtection: true
     })
+
+    // Create DynamoDB table for blog data
+    new dynamodb.Table(this, 'BlogData', {
+      tableName: 'BlogsData',
+      partitionKey: {
+        name: 'pk',
+        type: dynamodb.AttributeType.STRING
+      },
+      sortKey: {
+        name: 'sk',
+        type: dynamodb.AttributeType.STRING
+      },
+      billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
+      deletionProtection: true
+    })
   }
 }
